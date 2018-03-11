@@ -3,7 +3,6 @@ language: java
 services:
   - postgresql
 before_script:
-  - cp config/database.yml.travis config/database.yml
   - psql -c "CREATE DATABASE H2MSDatabase;" -U postgres
 notifications:
     slack: 2018swecapstone:IPDjX0h4Za0ztVoCHZXAoq0q

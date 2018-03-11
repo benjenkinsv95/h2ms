@@ -1,5 +1,0 @@
-postgresql: &postgresql
-adapter: postgresql
-username: postgres
-password: root
-database: H2MSDatabase
