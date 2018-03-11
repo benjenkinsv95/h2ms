@@ -1,9 +1,10 @@
-sudo: false
+sudo: required
 language: java
 services:
   - postgresql
 before_script:
-  - psql -c "create database H2MSDatabase;" -U postgres
+  - su - postgres
+  - createdb H2MSDatabase
 notifications:
     slack: 2018swecapstone:IPDjX0h4Za0ztVoCHZXAoq0q
 addons:
