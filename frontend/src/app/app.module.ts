@@ -18,7 +18,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { EventComponent } from './event/event.component';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ConfigService} from './config.service';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import {NavListComponent} from './nav-list/nav-list.component';
 import { ExportComponent } from './export/export.component';
 import {TokenInterceptor} from './token-interceptor.service';
 import { AuthService} from './auth.service';
@@ -32,7 +32,7 @@ import {AuthGuardService} from './auth-guard.service';
     LoginComponent,
     PrivacyComponent,
     EventComponent,
-    SidenavComponent,
+      NavListComponent,
     ExportComponent
   ],
   imports: [

@@ -1,25 +1,21 @@
 import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import {Location} from '@angular/common';
 import {NAV_ITEMS} from '../app-routing.module';
 import {NavItem} from '../nav-item';
-import {MatSidenav} from '@angular/material';
 import {ConfigService} from '../config.service';
 import {Config} from '../config';
 
 @Component({
-    selector: 'app-sidenav',
-    templateUrl: './sidenav.component.html',
-    styleUrls: ['./sidenav.component.css']
+    selector: 'app-nav-list',
+    templateUrl: './nav-list.component.html',
+    styleUrls: ['./nav-list.component.css']
 })
 /**
- * The SideNavComponent lists the navigation menu for the app. It is based on the following:
+ * The NavListComponent lists the navigation menu items for the app. It is based on the following:
  * https://stackblitz.com/angular/ngjvmobekyl?file=app%2Fsidenav-responsive-example.css
  */
-export class SidenavComponent implements OnDestroy {
-
-    @ViewChild(MatSidenav)
-    private matSidenav: MatSidenav;
+export class NavListComponent implements OnDestroy {
 
     mobileQuery: MediaQueryList;
     navItems: NavItem[];
@@ -46,26 +42,11 @@ export class SidenavComponent implements OnDestroy {
         return window.location.hostname === 'www.h2ms.org';
     }
 
-    isSidebarOpenOnPageLoad() {
-        return this.location.path() !== '/login' && !this.isMobileResolution();
-    }
-
-    private isMobileResolution() {
-        return this.mobileQuery.matches;
-    }
-
     ngOnDestroy(): void {
         this.mobileQuery.removeListener(this._mobileQueryListener);
     }
 
     switchConfigFile() {
         this.configService.toggleConfig();
-    }
-
-    /**
-     * Used by the AppComponent to toggle the sidenav open and shut.
-     */
-    toggle(): void {
-        this.matSidenav.toggle();
     }
 }

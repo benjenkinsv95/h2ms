@@ -5,7 +5,11 @@
     </mat-toolbar>
 
     <mat-sidenav-container class="app-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-        <app-sidenav #snav></app-sidenav>
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                     [opened]="isSidebarOpenOnPageLoad()"
+                     [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <app-nav-list></app-nav-list>
+        </mat-sidenav>
         <router-outlet></router-outlet>
     </mat-sidenav-container>
 </div>
